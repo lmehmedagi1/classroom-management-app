@@ -1,0 +1,60 @@
+.sadrzaj {
+    padding: 1em;
+    margin-top: 10px;
+}
+
+.tabelaSala {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.headerRedni, .headerSprat, .sala {
+    border: 1px solid black;
+    padding: 0.3em;
+}
+
+.headerSprat {
+    background-color: #b3b3b3;
+    text-align: right;
+    height: 50px;
+}
+
+.headerRedni {
+    background-color: #cccccc;
+}
+
+.sala {
+    background-color: white;
+    width: 40px;
+    height: 30px;
+
+    padding-top: 0;
+}
+
+.slobodnaSala {
+    background-color: green;
+}
+
+.zauzetaSala {
+    background-color: red;
+}
+
+.kancelarija {
+    background-color: gray;
+}
+
+tr:first-of-type td:nth-of-type(2) {
+    text-align: center;
+}
+
+.meni ul li:nth-child(2) a {
+    text-decoration: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .headerRedni, .headerSprat {
+        display: none;
+    }
+}

@@ -1,0 +1,1414 @@
+{
+  "testId" : "1-rezervacija.gspec",
+  "name" : "rezervacija.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Mutation test",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  rezervacija.gspec --url http://localhost/rezervacija.html --size 1920x1080 --offset 5 --htmlreport mutation-report-rezervacija",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: rezervacija.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573667013068,
+          "sections" : [ {
+            "name" : "Skeleton",
+            "place" : {
+              "filePath" : "rezervacija.gspec",
+              "lineNumber" : 22
+            },
+            "objects" : [ {
+              "name" : "meni",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 26
+                },
+                "name" : "centered horizontally inside screen 1px",
+                "highlight" : [ "meni", "screen" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 27
+                },
+                "name" : "inside screen 1px right, 0px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "meni", "screen" ]
+              } ]
+            }, {
+              "name" : "sadrzaj",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 26
+                },
+                "name" : "centered horizontally inside screen 1px",
+                "highlight" : [ "sadrzaj", "screen" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 27
+                },
+                "name" : "inside screen 1px right, 0px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "sadrzaj", "screen" ]
+              } ]
+            } ],
+            "sections" : [ {
+              "name" : "meni, sadrzaj are aligned vertically above each other with 10px margin",
+              "place" : {
+                "filePath" : "rezervacija.gspec",
+                "lineNumber" : 23
+              },
+              "objects" : [ {
+                "name" : "meni",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 214
+                  },
+                  "name" : "aligned vertically all sadrzaj 1px",
+                  "highlight" : [ "meni", "sadrzaj" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 215
+                  },
+                  "name" : "above sadrzaj 10px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "meni",
+                      "edge" : "bottom"
+                    },
+                    "to" : {
+                      "object" : "sadrzaj",
+                      "edge" : "top"
+                    },
+                    "expectedDistance" : "10px",
+                    "realDistance" : "10px"
+                  } ],
+                  "highlight" : [ "meni", "sadrzaj" ]
+                } ]
+              } ]
+            } ]
+          }, {
+            "name" : "meni elements",
+            "place" : {
+              "filePath" : "rezervacija.gspec",
+              "lineNumber" : 29
+            },
+            "objects" : [ {
+              "name" : "meni_element",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 31
+                },
+                "name" : "below logo 12px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "12px",
+                  "realDistance" : "12px"
+                } ],
+                "highlight" : [ "meni_element", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 32
+                },
+                "name" : "height 27px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni_element",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "27px",
+                  "realDistance" : "27px"
+                } ],
+                "highlight" : [ "meni_element" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 33
+                },
+                "name" : "inside meni 13px bottom, 40px left, >= 1px right",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "13px",
+                  "realDistance" : "13px"
+                }, {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "40px",
+                  "realDistance" : "40px"
+                }, {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : ">= 1px",
+                  "realDistance" : "1808px"
+                } ],
+                "highlight" : [ "meni_element", "meni" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 34
+                },
+                "name" : "width 60px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni_element",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "60px",
+                  "realDistance" : "60px"
+                } ],
+                "highlight" : [ "meni_element" ]
+              } ]
+            }, {
+              "name" : "meni_lista",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 37
+                },
+                "name" : "below logo 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "meni_lista", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 38
+                },
+                "name" : "height 18px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni_lista",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "18px",
+                  "realDistance" : "18px"
+                } ],
+                "highlight" : [ "meni_lista" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 39
+                },
+                "name" : "inside meni 1px right, 0px left, 18px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "18px",
+                  "realDistance" : "18px"
+                } ],
+                "highlight" : [ "meni_lista", "meni" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 46
+                },
+                "name" : "centered horizontally inside meni 1px",
+                "highlight" : [ "meni_lista", "meni" ]
+              } ]
+            }, {
+              "name" : "logo",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 42
+                },
+                "name" : "height 40px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "40px",
+                  "realDistance" : "40px"
+                } ],
+                "highlight" : [ "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 43
+                },
+                "name" : "inside meni 1px right, 0px top left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "logo", "meni" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 46
+                },
+                "name" : "centered horizontally inside meni 1px",
+                "highlight" : [ "logo", "meni" ]
+              } ]
+            } ]
+          }, {
+            "name" : "sadrzaj elements",
+            "place" : {
+              "filePath" : "rezervacija.gspec",
+              "lineNumber" : 48
+            },
+            "objects" : [ {
+              "name" : "padajuca_lista",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 54
+                },
+                "name" : "height 19px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "padajuca_lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "padajuca_lista",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "19px",
+                  "realDistance" : "19px"
+                } ],
+                "highlight" : [ "padajuca_lista" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 55
+                },
+                "name" : "inside forma 60px right, 0px top",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "padajuca_lista",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "60px",
+                  "realDistance" : "60px"
+                }, {
+                  "from" : {
+                    "object" : "padajuca_lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "padajuca_lista", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 56
+                },
+                "name" : "right-of labela 10px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "padajuca_lista",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "labela",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "10px",
+                  "realDistance" : "10px"
+                } ],
+                "highlight" : [ "padajuca_lista", "labela" ]
+              } ]
+            }, {
+              "name" : "input_time",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 59
+                },
+                "name" : "height 20px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_time",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "input_time",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "20px",
+                  "realDistance" : "20px"
+                } ],
+                "highlight" : [ "input_time" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 60
+                },
+                "name" : "inside forma 60px right, 30px bottom, >= 0px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_time",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "60px",
+                  "realDistance" : "60px"
+                }, {
+                  "from" : {
+                    "object" : "input_time",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "30px",
+                  "realDistance" : "30px"
+                }, {
+                  "from" : {
+                    "object" : "input_time",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "185px"
+                } ],
+                "highlight" : [ "input_time", "forma" ]
+              } ]
+            }, {
+              "name" : "forma",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 63
+                },
+                "name" : "inside sadrzaj 16px top",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "forma", "sadrzaj" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 91
+                },
+                "name" : "centered horizontally inside sadrzaj 1px",
+                "highlight" : [ "forma", "sadrzaj" ]
+              } ]
+            }, {
+              "name" : "mjesec",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 66
+                },
+                "name" : "height 34px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "mjesec",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "mjesec",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "34px",
+                  "realDistance" : "34px"
+                } ],
+                "highlight" : [ "mjesec" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 67
+                },
+                "name" : "inside kalendar 5px top left right",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "mjesec",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "kalendar",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                }, {
+                  "from" : {
+                    "object" : "mjesec",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "kalendar",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                }, {
+                  "from" : {
+                    "object" : "mjesec",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "kalendar",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "mjesec", "kalendar" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 70
+                },
+                "name" : "centered horizontally inside kalendar 1px",
+                "highlight" : [ "mjesec", "kalendar" ]
+              } ]
+            }, {
+              "name" : "sedmica",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 70
+                },
+                "name" : "centered horizontally inside kalendar 1px",
+                "highlight" : [ "sedmica", "kalendar" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 84
+                },
+                "name" : "height 24px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sedmica",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "sedmica",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "24px",
+                  "realDistance" : "24px"
+                } ],
+                "highlight" : [ "sedmica" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 85
+                },
+                "name" : "inside kalendar 5px left right",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sedmica",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "kalendar",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                }, {
+                  "from" : {
+                    "object" : "sedmica",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "kalendar",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                } ],
+                "highlight" : [ "sedmica", "kalendar" ]
+              } ]
+            }, {
+              "name" : "dani",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 70
+                },
+                "name" : "centered horizontally inside kalendar 1px",
+                "highlight" : [ "dani", "kalendar" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 88
+                },
+                "name" : "inside kalendar 5px left right, 4px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "dani",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "kalendar",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                }, {
+                  "from" : {
+                    "object" : "dani",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "kalendar",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                }, {
+                  "from" : {
+                    "object" : "dani",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "kalendar",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "4px",
+                  "realDistance" : "4px"
+                } ],
+                "highlight" : [ "dani", "kalendar" ]
+              } ]
+            }, {
+              "name" : "zauzeta",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 73
+                },
+                "name" : "height 40px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "zauzeta",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "zauzeta",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "40px",
+                  "realDistance" : "40px"
+                } ],
+                "highlight" : [ "zauzeta" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 74
+                },
+                "name" : "width 45px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "zauzeta",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "zauzeta",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "45px",
+                  "realDistance" : "45px"
+                } ],
+                "highlight" : [ "zauzeta" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 77
+                },
+                "name" : "inside dani 50px left, 45px top",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "zauzeta",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "dani",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "50px",
+                  "realDistance" : "50px"
+                }, {
+                  "from" : {
+                    "object" : "zauzeta",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "dani",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "45px",
+                  "realDistance" : "45px"
+                } ],
+                "highlight" : [ "zauzeta", "dani" ]
+              } ]
+            }, {
+              "name" : "slobodna",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 73
+                },
+                "name" : "height 40px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "slobodna",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "slobodna",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "40px",
+                  "realDistance" : "40px"
+                } ],
+                "highlight" : [ "slobodna" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 74
+                },
+                "name" : "width 45px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "slobodna",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "slobodna",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "45px",
+                  "realDistance" : "45px"
+                } ],
+                "highlight" : [ "slobodna" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 101
+                },
+                "name" : "inside dani 2px top, >= 50px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "slobodna",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "dani",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "2px",
+                  "realDistance" : "2px"
+                }, {
+                  "from" : {
+                    "object" : "slobodna",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "dani",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : ">= 50px",
+                  "realDistance" : "196px"
+                } ],
+                "highlight" : [ "slobodna", "dani" ]
+              } ]
+            }, {
+              "name" : "input_checkbox",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 80
+                },
+                "name" : "height 12px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_checkbox",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "input_checkbox",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "12px",
+                  "realDistance" : "12px"
+                } ],
+                "highlight" : [ "input_checkbox" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 81
+                },
+                "name" : "inside forma 60px right, >= 0px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_checkbox",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "60px",
+                  "realDistance" : "60px"
+                }, {
+                  "from" : {
+                    "object" : "input_checkbox",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "185px"
+                } ],
+                "highlight" : [ "input_checkbox", "forma" ]
+              } ]
+            }, {
+              "name" : "kalendar",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 91
+                },
+                "name" : "centered horizontally inside sadrzaj 1px",
+                "highlight" : [ "kalendar", "sadrzaj" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 98
+                },
+                "name" : "inside sadrzaj",
+                "meta" : [ ],
+                "highlight" : [ "kalendar", "sadrzaj" ]
+              } ]
+            }, {
+              "name" : "labela",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 94
+                },
+                "name" : "height 18px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "labela",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "labela",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "18px",
+                  "realDistance" : "18px"
+                } ],
+                "highlight" : [ "labela" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "rezervacija.gspec",
+                  "lineNumber" : 95
+                },
+                "name" : "inside forma 0px top left, >= 30px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "labela",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "labela",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "labela",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 30px",
+                  "realDistance" : "73px"
+                } ],
+                "highlight" : [ "labela", "forma" ]
+              } ]
+            } ],
+            "sections" : [ {
+              "name" : "forma, kalendar are aligned vertically above each other with 0px margin",
+              "place" : {
+                "filePath" : "rezervacija.gspec",
+                "lineNumber" : 49
+              },
+              "objects" : [ {
+                "name" : "forma",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 214
+                  },
+                  "name" : "aligned vertically all kalendar 1px",
+                  "highlight" : [ "forma", "kalendar" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 215
+                  },
+                  "name" : "above kalendar 0px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "forma",
+                      "edge" : "bottom"
+                    },
+                    "to" : {
+                      "object" : "kalendar",
+                      "edge" : "top"
+                    },
+                    "expectedDistance" : "0px",
+                    "realDistance" : "0px"
+                  } ],
+                  "highlight" : [ "forma", "kalendar" ]
+                } ]
+              } ]
+            }, {
+              "name" : "padajuca_lista, input_checkbox, input_time are aligned vertically above each other with ~5px margin",
+              "place" : {
+                "filePath" : "rezervacija.gspec",
+                "lineNumber" : 50
+              },
+              "objects" : [ {
+                "name" : "padajuca_lista",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 214
+                  },
+                  "name" : "aligned vertically all input_checkbox 1px",
+                  "highlight" : [ "padajuca_lista", "input_checkbox" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 215
+                  },
+                  "name" : "above input_checkbox ~5px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "padajuca_lista",
+                      "edge" : "bottom"
+                    },
+                    "to" : {
+                      "object" : "input_checkbox",
+                      "edge" : "top"
+                    },
+                    "expectedDistance" : "3 to 7px",
+                    "realDistance" : "4px"
+                  } ],
+                  "highlight" : [ "padajuca_lista", "input_checkbox" ]
+                } ]
+              }, {
+                "name" : "input_checkbox",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 214
+                  },
+                  "name" : "aligned vertically all input_time 1px",
+                  "highlight" : [ "input_checkbox", "input_time" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 215
+                  },
+                  "name" : "above input_time ~5px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "input_checkbox",
+                      "edge" : "bottom"
+                    },
+                    "to" : {
+                      "object" : "input_time",
+                      "edge" : "top"
+                    },
+                    "expectedDistance" : "3 to 7px",
+                    "realDistance" : "6px"
+                  } ],
+                  "highlight" : [ "input_checkbox", "input_time" ]
+                } ]
+              } ]
+            }, {
+              "name" : "mjesec, sedmica, dani are aligned vertically above each other with ~0px margin",
+              "place" : {
+                "filePath" : "rezervacija.gspec",
+                "lineNumber" : 51
+              },
+              "objects" : [ {
+                "name" : "mjesec",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 214
+                  },
+                  "name" : "aligned vertically all sedmica 1px",
+                  "highlight" : [ "mjesec", "sedmica" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 215
+                  },
+                  "name" : "above sedmica ~0px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "mjesec",
+                      "edge" : "bottom"
+                    },
+                    "to" : {
+                      "object" : "sedmica",
+                      "edge" : "top"
+                    },
+                    "expectedDistance" : "-2 to 2px",
+                    "realDistance" : "1px"
+                  } ],
+                  "highlight" : [ "mjesec", "sedmica" ]
+                } ]
+              }, {
+                "name" : "sedmica",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 214
+                  },
+                  "name" : "aligned vertically all dani 1px",
+                  "highlight" : [ "sedmica", "dani" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 215
+                  },
+                  "name" : "above dani ~0px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "sedmica",
+                      "edge" : "bottom"
+                    },
+                    "to" : {
+                      "object" : "dani",
+                      "edge" : "top"
+                    },
+                    "expectedDistance" : "-2 to 2px",
+                    "realDistance" : "0px"
+                  } ],
+                  "highlight" : [ "sedmica", "dani" ]
+                } ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "meni" : {
+              "area" : [ 0, 64, 1908, 92 ]
+            },
+            "meni_element" : {
+              "area" : [ 40, 116, 60, 27 ]
+            },
+            "padajuca_lista" : {
+              "area" : [ 964, 182, 105, 19 ]
+            },
+            "meni_lista" : {
+              "area" : [ 0, 120, 1907, 18 ]
+            },
+            "input_time" : {
+              "area" : [ 964, 223, 105, 20 ]
+            },
+            "screen" : {
+              "area" : [ 0, 0, 1909, 1000 ]
+            },
+            "forma" : {
+              "area" : [ 779, 182, 350, 91 ]
+            },
+            "mjesec" : {
+              "area" : [ 784, 278, 340, 34 ]
+            },
+            "sadrzaj" : {
+              "area" : [ 0, 166, 1908, 455 ]
+            },
+            "zauzeta" : {
+              "area" : [ 834, 382, 45, 40 ]
+            },
+            "input_checkbox" : {
+              "area" : [ 964, 205, 105, 12 ]
+            },
+            "sedmica" : {
+              "area" : [ 784, 313, 340, 24 ]
+            },
+            "dani" : {
+              "area" : [ 784, 337, 340, 216 ]
+            },
+            "logo" : {
+              "area" : [ 0, 64, 1907, 40 ]
+            },
+            "labela" : {
+              "area" : [ 779, 182, 175, 18 ]
+            },
+            "kalendar" : {
+              "area" : [ 779, 273, 350, 284 ]
+            },
+            "slobodna" : {
+              "area" : [ 980, 339, 45, 40 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        }, {
+          "name" : "Mutation testing: rezervacija.gspec included tags: ",
+          "status" : "error",
+          "time" : 1573667013068,
+          "mutationReport" : {
+            "objectMutationStatistics" : {
+              "meni" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "meni_element" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "padajuca_lista" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "meni_lista" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "input_time" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "screen" : {
+                "passed" : 5,
+                "failed" : 5,
+                "failedMutations" : [ "screen: drag top by 5px", "screen: drag down by 5px", "screen: increase height by 5px", "screen: decrease height by 5px", "screen: move top edge down by 5px" ]
+              },
+              "forma" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "mjesec" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sadrzaj" : {
+                "passed" : 8,
+                "failed" : 2,
+                "failedMutations" : [ "sadrzaj: increase height by 5px", "sadrzaj: decrease height by 5px" ]
+              },
+              "zauzeta" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "input_checkbox" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sedmica" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "dani" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "logo" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "labela" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "kalendar" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "slobodna" : {
+                "passed" : 8,
+                "failed" : 2,
+                "failedMutations" : [ "slobodna: drag left by 5px", "slobodna: drag right by 5px" ]
+              }
+            },
+            "totalPassed" : 161,
+            "totalFailed" : 9,
+            "failedRatio" : 5.294117647058823,
+            "totalMutations" : 170
+          },
+          "type" : "mutation"
+        } ],
+        "time" : 1573667004356,
+        "type" : "node"
+      } ],
+      "time" : 1573666998634,
+      "type" : "node"
+    } ]
+  }
+}

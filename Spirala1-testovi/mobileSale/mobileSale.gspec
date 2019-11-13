@@ -1,0 +1,61 @@
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+    meni .meni
+    logo .logo
+    meni_lista .meni ul
+    meni_element .meni li
+    sadrzaj .sadrzaj
+    tabelaSala .tabelaSala
+    headerSprat .headerSprat
+    headerRedni .headerRedni
+    slobodnaSala .slobodnaSala
+    zauzetaSala .zauzetaSala
+    sala .sala
+    kancelarija .kancelarija
+
+= Skeleton =
+    | meni, sadrzaj are aligned vertically above each other with 10px margin
+
+    meni, sadrzaj:
+        centered horizontally inside screen 1px
+        inside screen 0px left right
+
+= meni elements =
+    | logo, meni_lista are aligned vertically above each other with 16px margin
+
+    meni_element:
+        height 28px
+        inside meni_lista 40px left, 0px top right
+
+    meni_lista:
+        inside meni 2px right, 17px bottom, 0px left
+
+    logo:
+        height 40px
+        inside meni 2px right, 0px top left
+
+= sadrzaj elements =
+    | slobodnaSala, zauzetaSala are aligned vertically above each other with 0px margin
+
+    zauzetaSala:
+        inside tabelaSala 0px right, >= 0px left, >= 30px bottom
+
+    sala:
+        inside tabelaSala 2px top, 0px left, >= 30px bottom
+        left-of slobodnaSala
+
+    sala, kancelarija, slobodnaSala, zauzetaSala:
+        height 30px
+        width 40px
+
+    kancelarija:
+        inside tabelaSala 40px left, 30px bottom, >= 0px right, >= 2px top
+
+    tabelaSala:
+        centered horizontally inside sadrzaj 1px
+        inside sadrzaj 16px bottom, 17px top
+
+    slobodnaSala:
+        inside tabelaSala 2px top, 0px right
+

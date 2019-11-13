@@ -1,0 +1,102 @@
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+    meni .meni
+    logo .logo
+    meni_lista .meni ul
+    meni_element .meni li
+    sadrzaj .sadrzaj
+    forma .sadrzaj form
+    labela .sadrzaj form label
+    padajuca_lista .sadrzaj form div select
+    input_checkbox .sadrzaj form div input[type='checkbox']
+    input_time .sadrzaj form div input[type='time']
+    kalendar .kalendar
+    mjesec .mjesec
+    sedmica .sedmica
+    dani .dani
+    slobodna .slobodna
+    zauzeta .zauzeta
+    dugme .button
+
+= Skeleton =
+    | meni, sadrzaj are aligned vertically above each other with 10px margin
+
+    meni, sadrzaj:
+        centered horizontally inside screen 1px
+        inside screen 1px right, 0px left
+
+= meni elements =
+    meni_element:
+        below logo 12px
+        height 27px
+        inside meni 13px bottom, 40px left, >= 1px right
+        width 60px
+
+    meni_lista:
+        below logo 16px
+        height 18px
+        inside meni 1px right, 0px left, 18px bottom
+
+    logo:
+        height 40px
+        inside meni 1px right, 0px top left
+
+    logo, meni_lista:
+        centered horizontally inside meni 1px
+
+= sadrzaj elements =
+    | forma, kalendar are aligned vertically above each other with 0px margin
+    | padajuca_lista, input_checkbox, input_time are aligned vertically above each other with ~5px margin
+    | mjesec, sedmica, dani are aligned vertically above each other with ~0px margin
+
+    padajuca_lista:
+        height 19px
+        inside forma 60px right, 0px top
+        right-of labela 10px
+
+    input_time:
+        height 20px
+        inside forma 60px right, 30px bottom, >= 0px left
+
+    forma:
+        inside sadrzaj 16px top
+
+    mjesec:
+        height 34px
+        inside kalendar 5px top left right
+
+    mjesec, sedmica, dani:
+        centered horizontally inside kalendar 1px
+
+    zauzeta, slobodna:
+        height 40px
+        width 45px
+
+    zauzeta:
+        inside dani 50px left, 45px top
+
+    input_checkbox:
+        height 12px
+        inside forma 60px right, >= 0px left
+
+    sedmica:
+        height 24px
+        inside kalendar 5px left right
+
+    dani:
+        inside kalendar 5px left right, 4px bottom
+
+    forma, kalendar:
+        centered horizontally inside sadrzaj 1px
+
+    labela:
+        height 18px
+        inside forma 0px top left, >= 30px bottom
+
+    kalendar:
+        inside sadrzaj
+
+    slobodna:
+        inside dani 2px top, >= 50px left
+

@@ -1,0 +1,17 @@
+{
+  "tests" : [ {
+    "name" : "mobileUnos.gspec",
+    "startedAt" : 1573668110763,
+    "endedAt" : 1573668125312,
+    "failed" : true,
+    "statistic" : {
+      "passed" : 24,
+      "errors" : 1,
+      "warnings" : 0,
+      "total" : 25
+    },
+    "testId" : "1-mobileunos.gspec",
+    "duration" : 14549,
+    "failed" : true
+  } ]
+}

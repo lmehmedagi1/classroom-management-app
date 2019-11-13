@@ -1,0 +1,31 @@
+.sadrzaj {
+    padding: 1em;
+    margin-top: 10px;
+    text-align: center;
+}
+
+label {
+    width: 7.5em;
+    text-align: right;
+    display: inline-block;
+} 
+
+input {
+    margin: 0.4em;
+}
+
+input[type=submit] {
+    width: 7em;
+}
+
+.meni ul li:nth-child(3) a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .sadrzaj * {
+        width: 100%;
+        text-align: left;
+        margin: 2px;
+    }
+}

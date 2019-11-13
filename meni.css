@@ -1,0 +1,45 @@
+*{
+	box-sizing: border-box; /* ulazi i sirina sadrzaja i margine i borderi u width elementa */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 4em;
+    min-width: 250px;
+}
+
+.meni, .sadrzaj {
+    background-color: #739fd0;
+    width: 100%;
+    border: 1px solid green;
+}
+
+.meni {
+    text-align: center;
+}
+.logo {
+    height: 2.5em;
+}
+.logo img {
+    transform: translateY(-50%);
+}
+
+.meni ul {
+    padding-bottom: 0em;
+    list-style: none;
+    text-align: left;
+}
+.meni li {
+    display: inline;
+    padding: 0.3em;
+}
+.meni li a {
+    color: black;
+}
+
+@media only screen and (max-width: 600px) {
+    .meni li {
+        display: block;
+    }
+}

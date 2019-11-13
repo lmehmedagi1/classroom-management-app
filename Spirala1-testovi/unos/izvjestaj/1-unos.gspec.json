@@ -1,0 +1,684 @@
+{
+  "testId" : "1-unos.gspec",
+  "name" : "unos.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Simple check",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  unos.gspec --url http://localhost/unos.html --size 1920x1080 --htmlreport izvjestaj",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: unos.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573668396041,
+          "sections" : [ {
+            "name" : "Skeleton",
+            "place" : {
+              "filePath" : "unos.gspec",
+              "lineNumber" : 15
+            },
+            "objects" : [ {
+              "name" : "meni",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 19
+                },
+                "name" : "centered horizontally inside screen 1px",
+                "highlight" : [ "meni", "screen" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "inside screen 1px right, 0px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "meni", "screen" ]
+              } ]
+            }, {
+              "name" : "sadrzaj",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 19
+                },
+                "name" : "centered horizontally inside screen 1px",
+                "highlight" : [ "sadrzaj", "screen" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "inside screen 1px right, 0px left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "sadrzaj", "screen" ]
+              } ]
+            } ],
+            "sections" : [ {
+              "name" : "meni, sadrzaj are aligned vertically above each other with 10px margin",
+              "place" : {
+                "filePath" : "unos.gspec",
+                "lineNumber" : 16
+              },
+              "objects" : [ {
+                "name" : "meni",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 214
+                  },
+                  "name" : "aligned vertically all sadrzaj 1px",
+                  "highlight" : [ "meni", "sadrzaj" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 215
+                  },
+                  "name" : "above sadrzaj 10px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "meni",
+                      "edge" : "bottom"
+                    },
+                    "to" : {
+                      "object" : "sadrzaj",
+                      "edge" : "top"
+                    },
+                    "expectedDistance" : "10px",
+                    "realDistance" : "10px"
+                  } ],
+                  "highlight" : [ "meni", "sadrzaj" ]
+                } ]
+              } ]
+            } ]
+          }, {
+            "name" : "meni elements",
+            "place" : {
+              "filePath" : "unos.gspec",
+              "lineNumber" : 22
+            },
+            "objects" : [ {
+              "name" : "meni_element",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 24
+                },
+                "name" : "below logo 12px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "12px",
+                  "realDistance" : "12px"
+                } ],
+                "highlight" : [ "meni_element", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 25
+                },
+                "name" : "height 27px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni_element",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "27px",
+                  "realDistance" : "27px"
+                } ],
+                "highlight" : [ "meni_element" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 26
+                },
+                "name" : "inside meni 13px bottom, 40px left, >= 1px right",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "13px",
+                  "realDistance" : "13px"
+                }, {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "40px",
+                  "realDistance" : "40px"
+                }, {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : ">= 1px",
+                  "realDistance" : "1808px"
+                } ],
+                "highlight" : [ "meni_element", "meni" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 27
+                },
+                "name" : "width 60px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni_element",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "60px",
+                  "realDistance" : "60px"
+                } ],
+                "highlight" : [ "meni_element" ]
+              } ]
+            }, {
+              "name" : "meni_lista",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 30
+                },
+                "name" : "below logo 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "meni_lista", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 31
+                },
+                "name" : "height 18px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni_lista",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "18px",
+                  "realDistance" : "18px"
+                } ],
+                "highlight" : [ "meni_lista" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 32
+                },
+                "name" : "inside meni 1px right, 0px left, 18px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "18px",
+                  "realDistance" : "18px"
+                } ],
+                "highlight" : [ "meni_lista", "meni" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 39
+                },
+                "name" : "centered horizontally inside meni 1px",
+                "highlight" : [ "meni_lista", "meni" ]
+              } ]
+            }, {
+              "name" : "logo",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 35
+                },
+                "name" : "height 40px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "40px",
+                  "realDistance" : "40px"
+                } ],
+                "highlight" : [ "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 36
+                },
+                "name" : "inside meni 1px right, 0px top left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "1px",
+                  "realDistance" : "1px"
+                }, {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "logo", "meni" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 39
+                },
+                "name" : "centered horizontally inside meni 1px",
+                "highlight" : [ "logo", "meni" ]
+              } ]
+            } ]
+          }, {
+            "name" : "sadrzaj elements",
+            "place" : {
+              "filePath" : "unos.gspec",
+              "lineNumber" : 41
+            },
+            "objects" : [ {
+              "name" : "input_email",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 43
+                },
+                "name" : "below input_number 12px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_email",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "input_number",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "12px",
+                  "realDistance" : "12px"
+                } ],
+                "highlight" : [ "input_email", "input_number" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 50
+                },
+                "name" : "inside forma",
+                "meta" : [ ],
+                "highlight" : [ "input_email", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 57
+                },
+                "name" : "height 20px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_email",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "input_email",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "20px",
+                  "realDistance" : "20px"
+                } ],
+                "highlight" : [ "input_email" ]
+              } ]
+            }, {
+              "name" : "input_text",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 46
+                },
+                "name" : "above input_number 11px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_text",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "input_number",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "11px",
+                  "realDistance" : "11px"
+                } ],
+                "highlight" : [ "input_text", "input_number" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 47
+                },
+                "name" : "inside forma 6px top",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_text",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "6px",
+                  "realDistance" : "6px"
+                } ],
+                "highlight" : [ "input_text", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 57
+                },
+                "name" : "height 20px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_text",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "input_text",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "20px",
+                  "realDistance" : "20px"
+                } ],
+                "highlight" : [ "input_text" ]
+              } ]
+            }, {
+              "name" : "input_number",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 50
+                },
+                "name" : "inside forma",
+                "meta" : [ ],
+                "highlight" : [ "input_number", "forma" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 57
+                },
+                "name" : "height 20px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "input_number",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "input_number",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "20px",
+                  "realDistance" : "20px"
+                } ],
+                "highlight" : [ "input_number" ]
+              } ]
+            }, {
+              "name" : "forma",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 53
+                },
+                "name" : "centered horizontally inside sadrzaj 1px",
+                "highlight" : [ "forma", "sadrzaj" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "unos.gspec",
+                  "lineNumber" : 54
+                },
+                "name" : "inside sadrzaj 16px top left, 17px right bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                }, {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                }, {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "17px",
+                  "realDistance" : "17px"
+                }, {
+                  "from" : {
+                    "object" : "forma",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "17px",
+                  "realDistance" : "17px"
+                } ],
+                "highlight" : [ "forma", "sadrzaj" ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "meni" : {
+              "area" : [ 0, 64, 1908, 92 ]
+            },
+            "meni_element" : {
+              "area" : [ 40, 116, 60, 27 ]
+            },
+            "input_email" : {
+              "area" : [ 944, 251, 144, 20 ]
+            },
+            "meni_lista" : {
+              "area" : [ 0, 120, 1907, 18 ]
+            },
+            "input_text" : {
+              "area" : [ 944, 188, 144, 20 ]
+            },
+            "input_number" : {
+              "area" : [ 943, 219, 145, 20 ]
+            },
+            "screen" : {
+              "area" : [ 0, 0, 1909, 1000 ]
+            },
+            "logo" : {
+              "area" : [ 0, 64, 1907, 40 ]
+            },
+            "forma" : {
+              "area" : [ 16, 182, 1875, 157 ]
+            },
+            "sadrzaj" : {
+              "area" : [ 0, 166, 1908, 190 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        } ],
+        "time" : 1573668393296,
+        "type" : "node"
+      } ],
+      "time" : 1573668388289,
+      "type" : "node"
+    } ]
+  }
+}

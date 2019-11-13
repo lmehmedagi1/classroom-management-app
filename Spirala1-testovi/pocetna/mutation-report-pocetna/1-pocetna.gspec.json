@@ -1,0 +1,642 @@
+{
+  "testId" : "1-pocetna.gspec",
+  "name" : "pocetna.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Mutation test",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  pocetna.gspec --url http://localhost/pocetna.html --size 1920x1080 --offset 5 --htmlreport mutation-report-pocetna",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: pocetna.gspec included tags: ",
+          "status" : "info",
+          "time" : 1573664520985,
+          "sections" : [ {
+            "name" : "Skeleton",
+            "place" : {
+              "filePath" : "pocetna.gspec",
+              "lineNumber" : 12
+            },
+            "objects" : [ {
+              "name" : "meni",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 16
+                },
+                "name" : "inside screen 0px left right",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "meni", "screen" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 19
+                },
+                "name" : "centered horizontally inside screen 1px",
+                "highlight" : [ "meni", "screen" ]
+              } ]
+            }, {
+              "name" : "sadrzaj",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 19
+                },
+                "name" : "centered horizontally inside screen 1px",
+                "highlight" : [ "sadrzaj", "screen" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 22
+                },
+                "name" : "inside screen 0px left right bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "sadrzaj",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "screen",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "sadrzaj", "screen" ]
+              } ]
+            } ],
+            "sections" : [ {
+              "name" : "meni, sadrzaj are aligned vertically above each other with 10px margin",
+              "place" : {
+                "filePath" : "pocetna.gspec",
+                "lineNumber" : 13
+              },
+              "objects" : [ {
+                "name" : "meni",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 214
+                  },
+                  "name" : "aligned vertically all sadrzaj 1px",
+                  "highlight" : [ "meni", "sadrzaj" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 215
+                  },
+                  "name" : "above sadrzaj 10px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "meni",
+                      "edge" : "bottom"
+                    },
+                    "to" : {
+                      "object" : "sadrzaj",
+                      "edge" : "top"
+                    },
+                    "expectedDistance" : "10px",
+                    "realDistance" : "10px"
+                  } ],
+                  "highlight" : [ "meni", "sadrzaj" ]
+                } ]
+              } ]
+            } ]
+          }, {
+            "name" : "meni elements",
+            "place" : {
+              "filePath" : "pocetna.gspec",
+              "lineNumber" : 24
+            },
+            "objects" : [ {
+              "name" : "meni_element",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 26
+                },
+                "name" : "below logo 12px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "12px",
+                  "realDistance" : "12px"
+                } ],
+                "highlight" : [ "meni_element", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 27
+                },
+                "name" : "height 27px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni_element",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "27px",
+                  "realDistance" : "27px"
+                } ],
+                "highlight" : [ "meni_element" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 28
+                },
+                "name" : "inside meni 13px bottom, 40px left, >= 2px right",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "13px",
+                  "realDistance" : "13px"
+                }, {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "40px",
+                  "realDistance" : "40px"
+                }, {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : ">= 2px",
+                  "realDistance" : "1792px"
+                } ],
+                "highlight" : [ "meni_element", "meni" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 29
+                },
+                "name" : "width 60px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_element",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni_element",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "60px",
+                  "realDistance" : "60px"
+                } ],
+                "highlight" : [ "meni_element" ]
+              } ]
+            }, {
+              "name" : "meni_lista",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 32
+                },
+                "name" : "below logo 16px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "meni_lista", "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 33
+                },
+                "name" : "height 18px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni_lista",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "18px",
+                  "realDistance" : "18px"
+                } ],
+                "highlight" : [ "meni_lista" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 34
+                },
+                "name" : "inside meni 2px right, 0px left, 18px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "2px",
+                  "realDistance" : "2px"
+                }, {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "meni_lista",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "18px",
+                  "realDistance" : "18px"
+                } ],
+                "highlight" : [ "meni_lista", "meni" ]
+              } ]
+            }, {
+              "name" : "logo",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 37
+                },
+                "name" : "height 40px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "logo",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "40px",
+                  "realDistance" : "40px"
+                } ],
+                "highlight" : [ "logo" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 38
+                },
+                "name" : "inside meni 2px right, 0px top left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "right"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "2px",
+                  "realDistance" : "2px"
+                }, {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                }, {
+                  "from" : {
+                    "object" : "logo",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "meni",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "0px",
+                  "realDistance" : "0px"
+                } ],
+                "highlight" : [ "logo", "meni" ]
+              } ]
+            } ]
+          }, {
+            "name" : "sadrzaj elements",
+            "place" : {
+              "filePath" : "pocetna.gspec",
+              "lineNumber" : 40
+            },
+            "objects" : [ {
+              "name" : "slika",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 44
+                },
+                "name" : "centered horizontally inside okvir_slike 1px",
+                "highlight" : [ "slika", "okvir_slike" ]
+              }, {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 45
+                },
+                "name" : "inside okvir_slike 5px top, 8px bottom",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "slika",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "okvir_slike",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "5px",
+                  "realDistance" : "5px"
+                }, {
+                  "from" : {
+                    "object" : "slika",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "okvir_slike",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "8px",
+                  "realDistance" : "8px"
+                } ],
+                "highlight" : [ "slika", "okvir_slike" ]
+              } ]
+            }, {
+              "name" : "okvir_slike",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "pocetna.gspec",
+                  "lineNumber" : 48
+                },
+                "name" : "inside sadrzaj 16px top left",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "okvir_slike",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                }, {
+                  "from" : {
+                    "object" : "okvir_slike",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "sadrzaj",
+                    "edge" : "left"
+                  },
+                  "expectedDistance" : "16px",
+                  "realDistance" : "16px"
+                } ],
+                "highlight" : [ "okvir_slike", "sadrzaj" ]
+              } ]
+            } ],
+            "sections" : [ {
+              "name" : "slika should be squared with 200px size",
+              "place" : {
+                "filePath" : "pocetna.gspec",
+                "lineNumber" : 41
+              },
+              "objects" : [ {
+                "name" : "slika",
+                "specs" : [ {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 69
+                  },
+                  "name" : "width 200px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "slika",
+                      "edge" : "left"
+                    },
+                    "to" : {
+                      "object" : "slika",
+                      "edge" : "right"
+                    },
+                    "expectedDistance" : "200px",
+                    "realDistance" : "200px"
+                  } ],
+                  "highlight" : [ "slika" ]
+                }, {
+                  "status" : "info",
+                  "place" : {
+                    "filePath" : "../galen-extras/galen-extras-rules.gspec",
+                    "lineNumber" : 70
+                  },
+                  "name" : "height 200px",
+                  "meta" : [ {
+                    "from" : {
+                      "object" : "slika",
+                      "edge" : "top"
+                    },
+                    "to" : {
+                      "object" : "slika",
+                      "edge" : "bottom"
+                    },
+                    "expectedDistance" : "200px",
+                    "realDistance" : "200px"
+                  } ],
+                  "highlight" : [ "slika" ]
+                } ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "meni" : {
+              "area" : [ 0, 64, 1892, 92 ]
+            },
+            "meni_element" : {
+              "area" : [ 40, 116, 60, 27 ]
+            },
+            "slika" : {
+              "area" : [ 226, 187, 200, 200 ]
+            },
+            "okvir_slike" : {
+              "area" : [ 16, 182, 619, 213 ]
+            },
+            "meni_lista" : {
+              "area" : [ 0, 120, 1890, 18 ]
+            },
+            "screen" : {
+              "area" : [ 0, 0, 1892, 1054 ]
+            },
+            "logo" : {
+              "area" : [ 0, 64, 1890, 40 ]
+            },
+            "sadrzaj" : {
+              "area" : [ 0, 166, 1892, 888 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        }, {
+          "name" : "Mutation testing: pocetna.gspec included tags: ",
+          "status" : "error",
+          "time" : 1573664520985,
+          "mutationReport" : {
+            "objectMutationStatistics" : {
+              "meni" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "meni_element" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "slika" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "okvir_slike" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "meni_lista" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "screen" : {
+                "passed" : 9,
+                "failed" : 1,
+                "failedMutations" : [ "screen: move top edge down by 5px" ]
+              },
+              "logo" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              },
+              "sadrzaj" : {
+                "passed" : 10,
+                "failed" : 0,
+                "failedMutations" : [ ]
+              }
+            },
+            "totalPassed" : 79,
+            "totalFailed" : 1,
+            "totalMutations" : 80,
+            "failedRatio" : 1.25
+          },
+          "type" : "mutation"
+        } ],
+        "time" : 1573664516968,
+        "type" : "node"
+      } ],
+      "time" : 1573664510868,
+      "type" : "node"
+    } ]
+  }
+}

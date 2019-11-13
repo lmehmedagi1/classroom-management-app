@@ -1,0 +1,47 @@
+@import ../galen-extras/galen-extras-rules.gspec
+
+@objects
+    meni .meni
+    logo .logo
+    meni_lista .meni ul
+    meni_element .meni li
+    sadrzaj .sadrzaj
+    okvir_slike .sadrzaj div
+    slika .sadrzaj div img
+
+= Skeleton =
+    | meni, sadrzaj are aligned vertically above each other with 10px margin
+
+    meni:
+        inside screen 0px left right
+
+    meni, sadrzaj:
+        centered horizontally inside screen 1px
+
+    sadrzaj:
+        inside screen 1px bottom, 0px left right
+
+= meni elements =
+    | logo, meni_lista are aligned vertically above each other with 16px margin
+
+    meni_element:
+        height 28px
+        inside meni_lista 40px left, 0px top right
+
+    meni_lista:
+        inside meni 2px right, 17px bottom, 0px left
+
+    logo:
+        height 40px
+        inside meni 2px right, 0px top left
+
+= sadrzaj elements =
+    | slika should be squared with 160px size
+
+    slika:
+        centered horizontally inside okvir_slike 1px
+        inside okvir_slike 25px top, 28px bottom
+
+    okvir_slike:
+        inside sadrzaj 16px left, 17px top, 18px right
+

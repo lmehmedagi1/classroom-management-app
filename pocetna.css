@@ -1,0 +1,41 @@
+.sadrzaj {
+    padding: 1em;
+    margin-top: 10px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.sadrzaj div img {
+    max-height: 200px;
+    max-width: 200px;
+    margin: 5px;
+}
+
+@media (min-width: 440px) {
+    .sadrzaj {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (min-width: 660px) {
+    .sadrzaj {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+.meni ul li:nth-child(1) a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .sadrzaj {
+        grid-template-columns: auto;
+    }
+
+    .sadrzaj div img {
+        transform: scale(0.8);
+    }
+    
+}

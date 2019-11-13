@@ -1,0 +1,112 @@
+.sadrzaj {
+    padding: 1em;
+    margin-top: 10px;
+    text-align: center; 
+}
+
+form {
+    max-width: 350px;
+    margin: 0 auto;
+    text-align: left;
+    padding-bottom: 0.5em;
+}
+
+
+form input, form select {
+    width: 30%;
+    margin-left: 10px;
+}
+
+form label {
+    float: left;
+    text-align: right;
+    width: 50%;
+} 
+
+button {
+    border: 1px solid blue;
+    padding: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-right: 7em;
+}
+
+button + button {
+    margin-right: 0;
+}
+
+.kalendar {
+    border: 2px solid blue;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+.mjesec {
+    font-weight: bold;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.sedmica, .dani {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.sedmica div, .dani div {
+    border: 2px solid blue;
+    margin: 0.1em;
+}
+
+.dani div {
+    height: 40px;
+    position: relative;
+    z-index:1;
+}
+
+.slobodna {
+    background-color: green;
+}
+.zauzeta {
+    background-color: red;
+}
+
+.dani div::before {
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:0;
+    width:100%;
+    height:55%;
+    content:"";
+    background-color:white;
+    border-bottom: 2px solid blue;
+}
+
+.dani div:first-child {
+    grid-column: 5; /* dani počinju od petka */
+}
+
+.meni ul li:nth-child(4) a {
+    text-decoration: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    
+    .sedmica, .dani {
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    .sedmica div, .dani div {
+        height: 40px;
+        width: 40px;
+    }
+
+
+    .dani div:nth-child(1), .dani div:nth-child(2), .dani div:nth-child(9) ~ div {
+        display: none;
+    }
+}
