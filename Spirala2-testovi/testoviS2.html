@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zadatak 4</title>
-    <link rel="stylesheet" href="meni.css">
-    <link rel="stylesheet" href="rezervacija.css">
+    <title>Mocha testiranje</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../meni.css">
+    <link rel="stylesheet" href="../rezervacija.css">
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css"/>
     <meta charset="utf-8">
 </head>
 <body>
-    <div class="meni">
-        <div class="logo">
-            <img src="slike/ninja1.png" alt="Logo">
-        </div>
-        <ul>
-            <li><a href="pocetna.html">Početna</a></li>
-            <li><a href="sale.html">Sale</a></li>
-            <li><a href="unos.html">Unos</a></li>
-            <li><a href="rezervacija.html">Rezervacije</a></li>
-            <li><a href="#">Osobe</a></li>
-        </ul>
-    </div>
+    <div id="mocha"></div>
 
     <div class="sadrzaj">
-        
         <form>
             <div>
                 <label>Sala:</label>
@@ -118,6 +108,19 @@
         
     </div>
 
-    <script src="kalendar.js"></script>
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    
+    <script class="mocha-init">
+        mocha.setup('bdd');
+        mocha.checkLeaks();
+    </script>
+    <script src="../kalendar.js"></script>
+    <script src="test.js"></script>
+    <script class="mocha-exec">
+        mocha.run();
+    </script>
+
+    
 </body>
 </html>

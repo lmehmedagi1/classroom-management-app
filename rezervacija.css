@@ -11,7 +11,6 @@ form {
     padding-bottom: 0.5em;
 }
 
-
 form input, form select {
     width: 30%;
     margin-left: 10px;
@@ -35,7 +34,7 @@ button + button {
     margin-right: 0;
 }
 
-.kalendar {
+#kalendar {
     border: 2px solid blue;
     max-width: 350px;
     margin: 0 auto;
@@ -63,13 +62,7 @@ button + button {
     height: 40px;
     position: relative;
     z-index:1;
-}
-
-.slobodna {
     background-color: green;
-}
-.zauzeta {
-    background-color: red;
 }
 
 .dani div::before {
@@ -84,17 +77,12 @@ button + button {
     border-bottom: 2px solid blue;
 }
 
-.dani div:first-child {
-    grid-column: 5; /* dani počinju od petka */
-}
-
 .meni ul li:nth-child(4) a {
     text-decoration: none;
 }
 
-
 @media only screen and (max-width: 600px) {
-    
+
     .sedmica, .dani {
         display: inline-block;
         vertical-align: top;
