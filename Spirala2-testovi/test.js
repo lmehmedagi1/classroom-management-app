@@ -107,6 +107,21 @@ describe('Kalendar', function() {
             assert.equal(tvrdnja, true, "Sala je slobodna u drugim terminima");
         });
 
+        it("Test 6 - Neispravni podaci", function() {
+            var periodicna = [];
+            var vanredna = [
+                {datum:"21.11.2019", pocetak:"55:00", kraj:"12:87", naziv:"0-01", predavac:"V. prof. dr Vensada Okanovic"}
+            ];
+
+            Kalendar.ucitajPodatke(periodicna, vanredna);
+            var dani = document.getElementById("kalendar").querySelector(".dani");
+            var dan = dani.querySelector("div:nth-child(21)");
+
+            Kalendar.obojiZauzeca(document.getElementById("kalendar"), 10, "0-01", "55:00", "12:87");
+
+            assert.equal(dan.style.backgroundColor, "green", "Neispravni podaci ne mijenjaju nista");
+        })
+
     });
 
 
@@ -120,7 +135,7 @@ describe('Kalendar', function() {
             
             Kalendar.ucitajPodatke(periodicna, vanredna);
 
-            Kalendar.obojiZauzeca(document.getElementById("kalendar"), (new Date).getMonth(), "EE1", "12:00", "15:00");
+            Kalendar.obojiZauzeca(document.getElementById("kalendar"), 10, "EE1", "12:00", "15:00");
             var dani = document.getElementById("kalendar").querySelector(".dani");
             var dan = dani.querySelector("div:nth-child(21)");
 

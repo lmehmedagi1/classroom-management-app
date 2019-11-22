@@ -15,11 +15,14 @@ var vanrednaPocetni = [
 let Kalendar = (function() {    
 
     // Pomocne varijable
-    var mjeseci = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];    
+    var mjeseci = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];   
+    var sale = ["0-01", "0-02", "0-03", "0-04", "0-05", "0-06", "0-07", "0-08", "0-09", "1-01", "1-02", "1-03", "1-04", "1-05", "1-06", "1-07", "1-08", "1-09", "VA1", "VA2", "MA", "EE1", "EE2"]; 
     var ljetniMjeseci = [1, 2, 3, 4, 5];
     var zimskiMjeseci = [9, 10, 11, 0];
     var datum = new Date();
     var lista = document.getElementsByTagName("select")[0];
+    var vrijemeRegex = new RegExp("^((2[0-3]|[0][0-9]|1[0-9]):([0-5][0-9]))$");
+    var datumRegex = new RegExp("^((3[01]|[2][0-9]|1\d|0\d)\.(1[0-2]|0[1-9])\.\d{4})$");
     
     // Pocetni podaci - trenutni mjesec i default vrijednosti
     var trenutniMjesec = datum.getMonth();
@@ -33,6 +36,11 @@ let Kalendar = (function() {
 
 
     function obojiZauzecaImpl(kalendarRef, mjesec, sala, pocetak, kraj) {  
+
+        // Ukoliko su pogresni podaci, ne radi nista
+        if (kalendarRef === null || mjesec < 0 || mjesec > 11 || !sale.includes(sala) || !vrijemeRegex.test(pocetak) || !vrijemeRegex.test(kraj)) {
+            return;
+        }
         
         iscrtajKalendarImpl(kalendarRef, mjesec); 
 
@@ -88,13 +96,26 @@ let Kalendar = (function() {
             });
         }
     }    
+
     function ucitajPodatkeImpl(periodicna, vanredna) { 
+
+        // Ukoliko su pogresni podaci, ne radi nista
+        if (!validirajPeriodnica(periodicna) || !validirajVanredna(vanredna)) {
+            return;
+        }
+
         periodicnaZauzeca = periodicna;
         vanrednaZauzeca = vanredna;
         
         obojiZauzecaImpl(document.getElementById("kalendar"), trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);   
     }    
+
     function iscrtajKalendarImpl(kalendarRef, mjesec) {    
+
+        // Ukoliko su pogresni podaci, ne radi nista
+        if (kalendarRef === null || mjesec < 0 || mjesec > 11) {
+            return;
+        }
 
         var brojDanaUMjesecu = (new Date(2019, mjesec + 1, 0)).getDate();
 
@@ -115,6 +136,27 @@ let Kalendar = (function() {
         document.getElementsByClassName("mjesec")[0].innerHTML = mjeseci[mjesec];
         document.getElementsByClassName("dani")[0].children[0].style.gridColumnStart = dan;
     }
+
+
+    // Funckije za validaciju podataka
+    function validirajPeriodnica(periodicna) {
+        periodicna.forEach(function (x) {
+            if (x.dan < 0 || x.dan > 6 || (x.semestar !== "zimski" && x.semestar !== "ljetni") || !vrijemeRegex.test(x.pocetak) || !vrijemeRegex.test(x.kraj) || !sale.includes(x.naziv)) {
+                return false;
+            }
+        });
+        return true;
+    }
+
+    function validirajVanredna(vanredna) {
+        vanredna.forEach(function (x) {
+            if (!datumRegex.test(x.datum) || !vrijemeRegex.test(x.pocetak) || !vrijemeRegex.test(x.kraj) || !sale.includes(x.naziv)) {
+                return false;
+            }
+        });
+        return true;
+    }
+
 
     // Triggeri kada se promijeni neka od vrijednosti
     document.getElementById("prethodni").addEventListener("click", function(){
