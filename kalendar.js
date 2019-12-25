@@ -137,6 +137,51 @@ let Kalendar = (function() {
         document.getElementsByClassName("dani")[0].children[0].style.gridColumnStart = dan;
     }
 
+    // Funkcija za rezervaciju sale, poziva se kada se klikne dan na kalendaru
+    window.onclick = e => {
+        var dan = parseInt(e.target.innerHTML, 10);
+        
+        if (!isFinite(dan) || dan < 1 || dan > 31)
+            return;
+
+        var daniUSedmici = [" svaki ponedjeljak", " svaki utorak", " svaku srijedu", " svaki cetvrtak", " svaki petak", " svaku subotu", " svaku nedjelju"];
+        var semestarZauzeca = ljetniMjeseci.includes(trenutniMjesec) ? "ljetnom" : "zimskom";
+        var predavacZauzeca = "V. prof. dr Vensada Okanovic";
+        var datumZauzeca = dan + "." + (trenutniMjesec + 1) + "." + new Date().getFullYear();
+        var poruka = "";
+        
+        var prviDan = parseInt(document.getElementById("kalendar").querySelector(".dani").firstElementChild.style.gridColumnStart) - 1;
+
+        dan = (dan % 7) + prviDan - 1;
+        if (dan === -1) 
+            dan = 6;
+
+        if (dan >= prviDan)
+            dan = (dan % 7);
+
+        var odabranaPeriodicnaBox = document.getElementById("periodicnaBox").checked;
+
+        if (odabranaPeriodicnaBox)
+            poruka = "Želite li rezervisati salu " + trenutnaSala + daniUSedmici[dan] + " u " + semestarZauzeca + " semestru u periodu od " + trenutniPocetak + " do " + trenutniKraj + "?";
+        else 
+            poruka = "Želite li rezervisati salu " + trenutnaSala + " na datum " + datumZauzeca + " u periodu od " + trenutniPocetak + " do " + trenutniKraj + "?";
+
+        var result = confirm(poruka); 
+        if (result != true)
+            return;
+
+        // salji zahtjev 
+        if (odabranaPeriodicnaBox) {
+            semestarZauzeca = semestarZauzeca[0] === "l" ? "ljetni" : "zimski";
+            periodicnoZauzece = {dan: dan, semestar: semestarZauzeca, pocetak: trenutniPocetak, kraj: trenutniKraj, naziv: trenutnaSala, predavac: predavacZauzeca};
+            ucitajZauzeca();
+            rezervisiPeriodicno(periodicnoZauzece);
+        }
+        else {
+            vanrednoZauzece = {datum: datumZauzeca, pocetak: trenutniPocetak, kraj: trenutniKraj, naziv: trenutnaSala, predavac: predavacZauzeca};
+            rezervisiVanredno(vanrednoZauzece);
+        }
+    }
 
     // Funckije za validaciju podataka
     function validirajPeriodnica(periodicna) {
@@ -207,8 +252,3 @@ let Kalendar = (function() {
         iscrtajKalendar: iscrtajKalendarImpl    
     }
 }());
-
-var element = document.getElementsByClassName("meni"); 
-if (element.length > 0) {
-    Kalendar.ucitajPodatke(periodicnaPocetni, vanrednaPocetni);
-}

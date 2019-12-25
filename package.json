@@ -1,0 +1,20 @@
+{
+  "name": "wt1918174",
+  "version": "1.0.0",
+  "description": "WT spirala 2019/20.",
+  "main": "kalendar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://lmehmedagi1@bitbucket.org/lmehmedagi1/wt1918174.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/lmehmedagi1/wt1918174#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-json": "^1.0.0"
+  }
+}
