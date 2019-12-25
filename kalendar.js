@@ -26,6 +26,7 @@ let Kalendar = (function() {
     
     // Pocetni podaci - trenutni mjesec i default vrijednosti
     var trenutniMjesec = datum.getMonth();
+    console.log("Trenutni mjesec je " + trenutniMjesec);
     var trenutnaSala = lista.options[lista.selectedIndex].text;
     var trenutniPocetak = document.getElementsByName("pocetak")[0].value;
     var trenutniKraj = document.getElementsByName("kraj")[0].value;
@@ -41,8 +42,6 @@ let Kalendar = (function() {
         if (kalendarRef === null || mjesec < 0 || mjesec > 11 || !sale.includes(sala) || !vrijemeRegex.test(pocetak) || !vrijemeRegex.test(kraj)) {
             return;
         }
-        
-        iscrtajKalendarImpl(kalendarRef, mjesec); 
 
         var x1 = parseInt(pocetak.replace(':', ''));
         var y1 = parseInt(kraj.replace(':', ''));
@@ -62,10 +61,14 @@ let Kalendar = (function() {
                 var y2 = parseInt(zauzece.kraj.replace(':', ''));
 
                 if (sala === zauzece.naziv && Math.max(x1, x2) < Math.min(y1, y2)) {
-                    
-                    var dan = ((new Date(2019, mjesec, 1).getDay() + 6) % 7) +1;
 
-                    var zauzetiDani = document.querySelectorAll(".dani div:nth-child(7n +" + ((zauzece.dan + 9 - dan)%7) + ")");
+
+                    var dan = new Date(new Date().getFullYear(), mjesec, 1).getDay() -1;
+                    if (dan === -1)
+                        dan = 6;
+
+
+                    var zauzetiDani = document.querySelectorAll(".dani div:nth-child(7n +" + (8 - dan + parseInt(zauzece.dan,10)) % 7 + ")");
                     
                     if ((zauzece.semestar === "zimski" && zimskiMjeseci.includes(mjesec)) || (zauzece.semestar === "ljetni" && ljetniMjeseci.includes(mjesec))) {
                         zauzetiDani.forEach(function (x) {
@@ -107,8 +110,9 @@ let Kalendar = (function() {
         periodicnaZauzeca = periodicna;
         vanrednaZauzeca = vanredna;
         
-        obojiZauzecaImpl(document.getElementById("kalendar"), trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);   
+        iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
     }    
+
 
     function iscrtajKalendarImpl(kalendarRef, mjesec) {    
 
@@ -117,7 +121,7 @@ let Kalendar = (function() {
             return;
         }
 
-        var brojDanaUMjesecu = (new Date(2019, mjesec + 1, 0)).getDate();
+        var brojDanaUMjesecu = (new Date(new Date().getFullYear(), mjesec + 1, 0)).getDate();
 
         // Skrivamo sve dane
         var sviDani = document.querySelectorAll(".dani div");
@@ -131,10 +135,12 @@ let Kalendar = (function() {
             jedanDan.style.display = "block";
         });
 
-        var dan = ((new Date(2019, mjesec, 1).getDay() + 6) % 7) +1;
+        var dan = ((new Date(new Date().getFullYear(), mjesec, 1).getDay() + 6) % 7) +1;
         
         document.getElementsByClassName("mjesec")[0].innerHTML = mjeseci[mjesec];
         document.getElementsByClassName("dani")[0].children[0].style.gridColumnStart = dan;
+
+        obojiZauzecaImpl(kalendarRef, trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);  
     }
 
     // Funkcija za rezervaciju sale, poziva se kada se klikne dan na kalendaru
@@ -143,6 +149,8 @@ let Kalendar = (function() {
         
         if (!isFinite(dan) || dan < 1 || dan > 31)
             return;
+
+        // PROVJERI JEL KRAJ PRIJE POCETKA I JEL ZIMSKI IL LJETNI MJESEC
 
         var daniUSedmici = [" svaki ponedjeljak", " svaki utorak", " svaku srijedu", " svaki cetvrtak", " svaki petak", " svaku subotu", " svaku nedjelju"];
         var semestarZauzeca = ljetniMjeseci.includes(trenutniMjesec) ? "ljetnom" : "zimskom";
@@ -173,8 +181,7 @@ let Kalendar = (function() {
         // salji zahtjev 
         if (odabranaPeriodicnaBox) {
             semestarZauzeca = semestarZauzeca[0] === "l" ? "ljetni" : "zimski";
-            periodicnoZauzece = {dan: dan, semestar: semestarZauzeca, pocetak: trenutniPocetak, kraj: trenutniKraj, naziv: trenutnaSala, predavac: predavacZauzeca};
-            ucitajZauzeca();
+            periodicnoZauzece = {dan: dan.toString(), semestar: semestarZauzeca, pocetak: trenutniPocetak, kraj: trenutniKraj, naziv: trenutnaSala, predavac: predavacZauzeca};
             rezervisiPeriodicno(periodicnoZauzece);
         }
         else {
@@ -207,7 +214,7 @@ let Kalendar = (function() {
     document.getElementById("prethodni").addEventListener("click", function(){
         
         trenutniMjesec = trenutniMjesec - 1;
-        obojiZauzecaImpl(document.getElementById("kalendar"), trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);
+        iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
 
         // Ako smo dosli do januara ili se vratili na novembar
         if (trenutniMjesec === 0) {
@@ -220,7 +227,7 @@ let Kalendar = (function() {
 
     document.getElementById("sljedeci").addEventListener("click", function(){
         trenutniMjesec = trenutniMjesec + 1;
-        obojiZauzecaImpl(document.getElementById("kalendar"), trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);
+        iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
         
         // Ako smo dosli do decembra ili se vratili na februar
         if (trenutniMjesec === 11) {
@@ -233,17 +240,17 @@ let Kalendar = (function() {
 
     lista.addEventListener("change", function() {
         trenutnaSala = lista.options[lista.selectedIndex].text;
-        obojiZauzecaImpl(document.getElementById("kalendar"), trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);
+        iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
     });
 
     document.getElementsByName("pocetak")[0].addEventListener("change", function() {
         trenutniPocetak = document.getElementsByName("pocetak")[0].value;
-        obojiZauzecaImpl(document.getElementById("kalendar"), trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);
+        iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
     });
 
     document.getElementsByName("kraj")[0].addEventListener("change", function() {
         trenutniKraj = document.getElementsByName("kraj")[0].value;
-        obojiZauzecaImpl(document.getElementById("kalendar"), trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);
+        iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
     });
 
     return {        

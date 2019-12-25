@@ -21,4 +21,19 @@ app.get('/unos',function(req,res){
 app.get('/rezervacija',function(req,res){
     res.sendFile(__dirname + "/rezervacija.html");
 });
+app.get('/zauzeca',function(req,res){
+    res.sendFile(__dirname + "/zauzeca.json");
+});
+app.post('/zauzeca',function(req,res){
+    console.log("DA LI OVDJE UDJE IKAD I ZASTO NE" + JSON.stringify(req.body));
+    console.dir(req.body);
+
+    fs.writeFile("zauzeca.json", JSON.stringify(req.body), function(err) {
+        if(err) throw err;
+        console.log("Novi red uspješno dodan!");
+    });
+    
+    res.sendStatus(200);
+    
+});
 app.listen(8080);
