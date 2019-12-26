@@ -1,4 +1,4 @@
-.sadrzaj {
+#sadrzaj {
     padding: 1em;
     margin-top: 10px;
     text-align: center;
@@ -6,20 +6,28 @@
     grid-template-columns: auto;
 }
 
-.sadrzaj div img {
+#sadrzaj div img {
     max-height: 200px;
     max-width: 200px;
     margin: 5px;
 }
 
+button {
+    display: inline-block;
+}
+
+body {
+    text-align: center;
+}
+
 @media (min-width: 440px) {
-    .sadrzaj {
+    #sadrzaj {
         grid-template-columns: auto auto;
     }
 }
 
 @media (min-width: 660px) {
-    .sadrzaj {
+    #sadrzaj {
         grid-template-columns: auto auto auto;
     }
 }
@@ -30,11 +38,11 @@
 
 @media only screen and (max-width: 600px) {
 
-    .sadrzaj {
+    #sadrzaj {
         grid-template-columns: auto;
     }
 
-    .sadrzaj div img {
+    #sadrzaj div img {
         transform: scale(0.8);
     }
     

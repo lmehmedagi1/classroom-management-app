@@ -26,7 +26,6 @@ let Kalendar = (function() {
     
     // Pocetni podaci - trenutni mjesec i default vrijednosti
     var trenutniMjesec = datum.getMonth();
-    console.log("Trenutni mjesec je " + trenutniMjesec);
     var trenutnaSala = lista.options[lista.selectedIndex].text;
     var trenutniPocetak = document.getElementsByName("pocetak")[0].value;
     var trenutniKraj = document.getElementsByName("kraj")[0].value;
@@ -34,6 +33,12 @@ let Kalendar = (function() {
     // Nizovi zauzeca za sve sale
     var periodicnaZauzeca = [];
     var vanrednaZauzeca = [];
+
+    // Ukoliko je mjesec januar ili decembar onemoguci odgovarajuce dugme
+    if (trenutniMjesec === 0)
+        document.getElementById("prethodni").disabled = true;
+    else if (trenutniMjesec === 11)
+        document.getElementById("sljedeci").disabled = true;
 
 
     function obojiZauzecaImpl(kalendarRef, mjesec, sala, pocetak, kraj) {  
@@ -147,10 +152,23 @@ let Kalendar = (function() {
     window.onclick = e => {
         var dan = parseInt(e.target.innerHTML, 10);
         
-        if (!isFinite(dan) || dan < 1 || dan > 31)
+        if (!isFinite(dan) || e.target.tagName === "OPTION" || dan < 1 || dan > 31)
             return;
 
-        // PROVJERI JEL KRAJ PRIJE POCETKA I JEL ZIMSKI IL LJETNI MJESEC
+        if (trenutniPocetak === null || trenutniPocetak == "" || trenutniKraj === null || trenutniKraj == "") {
+            alert("Niste postavili vrijeme pocetka ili kraja termina!");
+            return;
+        }
+
+        if (!zimskiMjeseci.includes(trenutniMjesec) && !ljetniMjeseci.includes(trenutniMjesec)) {
+            alert("Ovaj mjesec nije niti u zimskom niti u ljetnom semestru!");
+            return;
+        }
+
+        if (parseInt(trenutniPocetak.replace(':', '')) > parseInt(trenutniKraj.replace(':', ''))) {
+            alert("Pocetak termina ne moze biti prije kraja!");
+            return;
+        }
 
         var daniUSedmici = [" svaki ponedjeljak", " svaki utorak", " svaku srijedu", " svaki cetvrtak", " svaki petak", " svaku subotu", " svaku nedjelju"];
         var semestarZauzeca = ljetniMjeseci.includes(trenutniMjesec) ? "ljetnom" : "zimskom";

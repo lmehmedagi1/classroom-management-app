@@ -132,14 +132,28 @@ let Pozivi = (function() {
                     return false;
             }
         }
-
         return true;
+    }
 
+    function dohvatiSlikeImpl(url) {
+        console.log("ovdje ga " + url);
+        var xhttpSlike;
+        xhttpSlike=new XMLHttpRequest();
+        xhttpSlike.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Da li ikad");
+                console.log(xhttpSlike.responseText + " da li ikad");
+                document.getElementById("sadrzaj").innerHTML = xhttpSlike.responseText;
+            }
+        };
+        xhttpSlike.open("GET", url, true);
+        xhttpSlike.send();
     }
 
     return {    
         ucitajPodatkeSaServera: ucitajPodatkeSaServeraImpl,
         upisiNovoVanrednoZauzece: upisiNovoVanrednoZauzeceImpl,
-        upisiNovoPeriodicnoZauzece: upisiNovoPeriodicnoZauzeceImpl 
+        upisiNovoPeriodicnoZauzece: upisiNovoPeriodicnoZauzeceImpl,
+        dohvatiSlike: dohvatiSlikeImpl 
     }
 }());

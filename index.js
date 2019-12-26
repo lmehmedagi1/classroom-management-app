@@ -36,4 +36,31 @@ app.post('/zauzeca',function(req,res){
     res.sendStatus(200);
     
 });
+app.get('/slike1',function(req,res){
+    let slike = "";
+    for (let i = 1; i < 4; i++) {
+        slike += "<div><img src=\"slike/slika" + i + ".png\" alt=\"Slika\"></div>";
+    }
+    res.end(slike);
+});
+app.get('/slike2',function(req,res){
+
+    let slike = "";
+    for (let i = 4; i < 7; i++) {
+        slike += "<div><img src=\"slike/slika" + i + ".png\" alt=\"Slika\"></div>";
+    }
+    res.end(slike);
+});
+app.get('/slike3',function(req,res){
+
+    let slike = "";
+    for (let i = 7; i < 10; i++) {
+        slike += "<div><img src=\"slike/slika" + i + ".png\" alt=\"Slika\"></div>";
+    }
+    res.end(slike);
+});
+app.get('/slike4',function(req,res){
+    let slike = "<div><img src=\"slike/slika10.png\" alt=\"Slika\"></div>";
+    res.end(slike);
+});
 app.listen(8080);
