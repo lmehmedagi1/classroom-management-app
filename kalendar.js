@@ -16,23 +16,23 @@ let Kalendar = (function() {
 
     // Pomocne varijable
     var mjeseci = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];   
-    var sale = ["0-01", "0-02", "0-03", "0-04", "0-05", "0-06", "0-07", "0-08", "0-09", "1-01", "1-02", "1-03", "1-04", "1-05", "1-06", "1-07", "1-08", "1-09", "VA1", "VA2", "MA", "EE1", "EE2"]; 
+    var sale    = ["0-01", "0-02", "0-03", "0-04", "0-05", "0-06", "0-07", "0-08", "0-09", "1-01", "1-02", "1-03", "1-04", "1-05", "1-06", "1-07", "1-08", "1-09", "VA1", "VA2", "MA", "EE1", "EE2"]; 
     var ljetniMjeseci = [1, 2, 3, 4, 5];
     var zimskiMjeseci = [9, 10, 11, 0];
     var datum = new Date();
     var lista = document.getElementsByTagName("select")[0];
     var vrijemeRegex = new RegExp("^((2[0-3]|[0][0-9]|1[0-9]):([0-5][0-9]))$");
-    var datumRegex = new RegExp("^((3[01]|[2][0-9]|1\d|0\d)\.(1[0-2]|0[1-9])\.\d{4})$");
+    var datumRegex   = new RegExp("^((3[01]|[2][0-9]|1\d|0\d|\d)\.(1[0-2]|0[1-9]|[1-9])\.\d{4})$");
     
     // Pocetni podaci - trenutni mjesec i default vrijednosti
-    var trenutniMjesec = datum.getMonth();
-    var trenutnaSala = lista.options[lista.selectedIndex].text;
+    var trenutniMjesec  = datum.getMonth();
+    var trenutnaSala    = lista.options[lista.selectedIndex].text;
     var trenutniPocetak = document.getElementsByName("pocetak")[0].value;
-    var trenutniKraj = document.getElementsByName("kraj")[0].value;
+    var trenutniKraj    = document.getElementsByName("kraj")[0].value;
 
     // Nizovi zauzeca za sve sale
     var periodicnaZauzeca = [];
-    var vanrednaZauzeca = [];
+    var vanrednaZauzeca   = [];
 
     // Ukoliko je mjesec januar ili decembar onemoguci odgovarajuce dugme
     if (trenutniMjesec === 0)
@@ -91,7 +91,7 @@ let Kalendar = (function() {
 
                 var parts = zauzece.datum.split('.');
                 var month = parseInt(parts[1], 10) - 1; 
-                var day = parseInt(parts[0], 10);
+                var day   = parseInt(parts[0], 10);
 
                 var x2 = parseInt(zauzece.pocetak.replace(':', ''));
                 var y2 = parseInt(zauzece.kraj.replace(':', ''));
@@ -151,6 +151,7 @@ let Kalendar = (function() {
     // Funkcija za rezervaciju sale, poziva se kada se klikne dan na kalendaru
     window.onclick = e => {
         var dan = parseInt(e.target.innerHTML, 10);
+        var odabranaPeriodicnaBox = document.getElementById("periodicnaBox").checked;
         
         if (!isFinite(dan) || e.target.tagName === "OPTION" || dan < 1 || dan > 31)
             return;
@@ -160,7 +161,7 @@ let Kalendar = (function() {
             return;
         }
 
-        if (!zimskiMjeseci.includes(trenutniMjesec) && !ljetniMjeseci.includes(trenutniMjesec)) {
+        if (odabranaPeriodicnaBox && !zimskiMjeseci.includes(trenutniMjesec) && !ljetniMjeseci.includes(trenutniMjesec)) {
             alert("Ovaj mjesec nije niti u zimskom niti u ljetnom semestru!");
             return;
         }
@@ -168,12 +169,12 @@ let Kalendar = (function() {
         if (parseInt(trenutniPocetak.replace(':', '')) > parseInt(trenutniKraj.replace(':', ''))) {
             alert("Pocetak termina ne moze biti prije kraja!");
             return;
-        }
+        }  
 
-        var daniUSedmici = [" svaki ponedjeljak", " svaki utorak", " svaku srijedu", " svaki cetvrtak", " svaki petak", " svaku subotu", " svaku nedjelju"];
+        var daniUSedmici    = [" svaki ponedjeljak", " svaki utorak", " svaku srijedu", " svaki cetvrtak", " svaki petak", " svaku subotu", " svaku nedjelju"];
         var semestarZauzeca = ljetniMjeseci.includes(trenutniMjesec) ? "ljetnom" : "zimskom";
         var predavacZauzeca = "V. prof. dr Vensada Okanovic";
-        var datumZauzeca = dan + "." + (trenutniMjesec + 1) + "." + new Date().getFullYear();
+        var datumZauzeca    = dan + "." + (trenutniMjesec + 1) + "." + new Date().getFullYear();
         var poruka = "";
         
         var prviDan = parseInt(document.getElementById("kalendar").querySelector(".dani").firstElementChild.style.gridColumnStart) - 1;
@@ -184,8 +185,12 @@ let Kalendar = (function() {
 
         if (dan >= prviDan)
             dan = (dan % 7);
-
-        var odabranaPeriodicnaBox = document.getElementById("periodicnaBox").checked;
+        
+        if (e.target.style.backgroundColor === "red") {
+            alert("Nije moguce rezervisati salu " + trenutnaSala + " za navedeni datum " + datumZauzeca + " i termin od " + trenutniPocetak + " do " + trenutniKraj + "!");
+            ucitajZauzeca();
+            return;
+        }
 
         if (odabranaPeriodicnaBox)
             poruka = "Želite li rezervisati salu " + trenutnaSala + daniUSedmici[dan] + " u " + semestarZauzeca + " semestru u periodu od " + trenutniPocetak + " do " + trenutniKraj + "?";
