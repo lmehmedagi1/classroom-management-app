@@ -90,13 +90,14 @@ let Kalendar = (function() {
             vanrednaZauzeca.forEach(function (zauzece) {
 
                 var parts = zauzece.datum.split('.');
+                var year = parseInt(parts[2], 10);
                 var month = parseInt(parts[1], 10) - 1; 
                 var day   = parseInt(parts[0], 10);
 
                 var x2 = parseInt(zauzece.pocetak.replace(':', ''));
                 var y2 = parseInt(zauzece.kraj.replace(':', ''));
     
-                if (mjesec === month && Math.max(x1, x2) < Math.min(y1, y2) && sala === zauzece.naziv) {
+                if (year == new Date().getFullYear() && mjesec === month && Math.max(x1, x2) < Math.min(y1, y2) && sala === zauzece.naziv) {
     
                     var zauzetiDan = document.querySelector(".dani div:nth-child(" + day + ")");
                     zauzetiDan.style.backgroundColor = "red";

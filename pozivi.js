@@ -17,6 +17,9 @@ let Pozivi = (function() {
     // upisuje novo zauzece na server
     function upisiNovoPeriodicnoZauzeceImpl(periodicno) {
 
+        var daniUSedmici = [" svaki ponedjeljak", " svaki utorak", " svaku srijedu", " svaki cetvrtak", " svaki petak", " svaku subotu", " svaku nedjelju"];
+        semestarZauzeca = periodicno.semestar[0] === "l" ? "ljetnom" : "zimskom";
+
         var ajaxPOST = new XMLHttpRequest();
         ajaxPOST.onreadystatechange = function() {
                         
@@ -27,7 +30,7 @@ let Pozivi = (function() {
             else if (this.readyState == 4 && this.status == 400) {
                 zauzecaJson = JSON.parse(ajaxPOST.responseText);
                 Kalendar.ucitajPodatke(zauzecaJson.periodicna, zauzecaJson.vanredna);
-                alert("Nije moguce rezervisati salu " + periodicno.naziv + " za navedeni dan " + periodicno.dan + " i termin od " + periodicno.pocetak + " do " + periodicno.kraj + "!");
+                alert("Nije moguce rezervisati salu " + periodicno.naziv + daniUSedmici[periodicno.dan] + " u " + semestarZauzeca + " semestru i terminu od " + periodicno.pocetak + " do " + periodicno.kraj + "!");
             }
         };
         ajaxPOST.open("POST", "http://localhost:8080/zauzeca-periodicna", true);
@@ -36,8 +39,6 @@ let Pozivi = (function() {
     }
 
     function upisiNovoVanrednoZauzeceImpl(vanredno) {
-
-        console.log("\n\n*** POCINJEM AJAX ***\n\n")
 
         var ajaxPOST = new XMLHttpRequest();
         ajaxPOST.onreadystatechange = function() {
@@ -56,19 +57,24 @@ let Pozivi = (function() {
         ajaxPOST.send(JSON.stringify(vanredno));
     }
 
-    function dohvatiSlikeImpl(url) {
-        console.log("ovdje ga " + url);
+    function dohvatiSlikeImpl(trenutna) {
+
         var xhttpSlike;
         xhttpSlike=new XMLHttpRequest();
         xhttpSlike.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                console.log("Da li ikad");
-                console.log(xhttpSlike.responseText + " da li ikad");
-                document.getElementById("sadrzaj").innerHTML = xhttpSlike.responseText;
+                document.getElementById("sljedeci").disabled = false;
+                azurirajSlike(xhttpSlike.responseText);
+            }
+            else if (this.readyState == 4 && this.status == 220) {
+                document.getElementById("sljedeci").disabled = true;
+                azurirajSlike(xhttpSlike.responseText);
             }
         };
-        xhttpSlike.open("GET", url, true);
+        trenutna = encodeURIComponent(trenutna);
+        xhttpSlike.open("GET", "/slike?trenutna=" + trenutna, true);
         xhttpSlike.send();
+
     }
 
     return {    
