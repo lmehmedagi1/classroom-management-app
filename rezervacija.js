@@ -1,6 +1,7 @@
 var element = document.getElementsByClassName("meni"); 
 if (element.length > 0) {
-    Pozivi.ucitajPodatkeSaServera("/zauzeca.json");
+    Pozivi.ucitajOsoblja();
+    Pozivi.ucitajPodatkeSaServera("/zauzeca");
 }
 
 function rezervisiPeriodicno(periodicno) {
@@ -12,5 +13,5 @@ function rezervisiVanredno(vanredno) {
 }
 
 function ucitajZauzeca() {
-    Pozivi.ucitajPodatkeSaServera("/zauzeca.json");
+    Pozivi.ucitajPodatkeSaServera("/zauzeca");
 }

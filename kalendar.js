@@ -1,26 +1,13 @@
-// Pocetni podaci, hardkodirani
-
-var periodicnaPocetni = [
-    {dan:1, semestar:"zimski", pocetak:"12:00", kraj:"15:00", naziv:"0-01", predavac:"V. prof. dr Vensada Okanovic"},
-    {dan:3, semestar:"ljetni", pocetak:"09:00", kraj:"12:00", naziv:"0-03", predavac:"V. prof. dr Vensada Okanovic"},
-    {dan:0, semestar:"zimski", pocetak:"09:00", kraj:"12:00", naziv:"VA1", predavac:"V. prof. dr Vensada Okanovic"}
-];
-var vanrednaPocetni = [
-    {datum:"21.11.2019", pocetak:"12:00", kraj:"15:00", naziv:"0-01", predavac:"V. prof. dr Vensada Okanovic"},
-    {datum:"25.12.2019", pocetak:"12:00", kraj:"15:00", naziv:"EE1", predavac:"V. prof. dr Vensada Okanovic"},
-    {datum:"12.03.2019", pocetak:"12:00", kraj:"15:00", naziv:"EE2", predavac:"V. prof. dr Vensada Okanovic"}
-];
-
-
 let Kalendar = (function() {    
 
     // Pomocne varijable
     var mjeseci = ['Januar', 'Februar', 'Mart', 'April', 'Maj', 'Juni', 'Juli', 'August', 'Septembar', 'Oktobar', 'Novembar', 'Decembar'];   
-    var sale    = ["0-01", "0-02", "0-03", "0-04", "0-05", "0-06", "0-07", "0-08", "0-09", "1-01", "1-02", "1-03", "1-04", "1-05", "1-06", "1-07", "1-08", "1-09", "VA1", "VA2", "MA", "EE1", "EE2"]; 
+    var sale    = ["0-01", "0-02", "0-03", "0-04", "0-05", "0-06", "0-07", "0-08", "0-09", "1-01", "1-02", "1-03", "1-04", "1-05", "1-06", "1-07", "1-08", "1-09", "1-11", "1-15", "VA1", "VA2", "MA", "EE1", "EE2"]; 
     var ljetniMjeseci = [1, 2, 3, 4, 5];
     var zimskiMjeseci = [9, 10, 11, 0];
     var datum = new Date();
-    var lista = document.getElementsByTagName("select")[0];
+    var lista = document.getElementById("lista");
+    var listaOsoba = document.getElementById("listaOsoba");
     var vrijemeRegex = new RegExp("^((2[0-3]|[0][0-9]|1[0-9]):([0-5][0-9]))$");
     var datumRegex   = new RegExp("^((3[01]|[2][0-9]|1\d|0\d|\d)\.(1[0-2]|0[1-9]|[1-9])\.\d{4})$");
     
@@ -29,6 +16,7 @@ let Kalendar = (function() {
     var trenutnaSala    = lista.options[lista.selectedIndex].text;
     var trenutniPocetak = document.getElementsByName("pocetak")[0].value;
     var trenutniKraj    = document.getElementsByName("kraj")[0].value;
+    var trenutnaOsoba   = "";
 
     // Nizovi zauzeca za sve sale
     var periodicnaZauzeca = [];
@@ -41,10 +29,10 @@ let Kalendar = (function() {
         document.getElementById("sljedeci").disabled = true;
 
 
-    function obojiZauzecaImpl(kalendarRef, mjesec, sala, pocetak, kraj) {  
+    function obojiZauzecaImpl(kalendarRef, mjesec, sala, pocetak, kraj, osoba) { 
 
         // Ukoliko su pogresni podaci, ne radi nista
-        if (kalendarRef === null || mjesec < 0 || mjesec > 11 || !sale.includes(sala) || !vrijemeRegex.test(pocetak) || !vrijemeRegex.test(kraj)) {
+        if (kalendarRef === null || mjesec < 0 || mjesec > 11 || !sale.includes(sala) || !vrijemeRegex.test(pocetak) || !vrijemeRegex.test(kraj) || osoba === null || osoba === "") {
             return;
         }
 
@@ -67,11 +55,9 @@ let Kalendar = (function() {
 
                 if (sala === zauzece.naziv && Math.max(x1, x2) < Math.min(y1, y2)) {
 
-
                     var dan = new Date(new Date().getFullYear(), mjesec, 1).getDay() -1;
                     if (dan === -1)
                         dan = 6;
-
 
                     var zauzetiDani = document.querySelectorAll(".dani div:nth-child(7n +" + (8 - dan + parseInt(zauzece.dan,10)) % 7 + ")");
                     
@@ -87,7 +73,11 @@ let Kalendar = (function() {
 
         if (Array.isArray(vanrednaZauzeca) && vanrednaZauzeca.length) {
 
+            console.log(vanrednaZauzeca);
+
             vanrednaZauzeca.forEach(function (zauzece) {
+
+                console.log(zauzece);
 
                 var parts = zauzece.datum.split('.');
                 var year = parseInt(parts[2], 10);
@@ -146,7 +136,7 @@ let Kalendar = (function() {
         document.getElementsByClassName("mjesec")[0].innerHTML = mjeseci[mjesec];
         document.getElementsByClassName("dani")[0].children[0].style.gridColumnStart = dan;
 
-        obojiZauzecaImpl(kalendarRef, trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj);  
+        obojiZauzecaImpl(kalendarRef, trenutniMjesec, trenutnaSala, trenutniPocetak, trenutniKraj, trenutnaOsoba);  
     }
 
     // Funkcija za rezervaciju sale, poziva se kada se klikne dan na kalendaru
@@ -172,9 +162,14 @@ let Kalendar = (function() {
             return;
         }  
 
+        if (trenutnaOsoba === null || trenutnaOsoba == "") {
+            alert("Termin mora zauzeti neka osoba");
+            return;
+        }  
+
         var daniUSedmici    = [" svaki ponedjeljak", " svaki utorak", " svaku srijedu", " svaki cetvrtak", " svaki petak", " svaku subotu", " svaku nedjelju"];
         var semestarZauzeca = ljetniMjeseci.includes(trenutniMjesec) ? "ljetnom" : "zimskom";
-        var predavacZauzeca = "V. prof. dr Vensada Okanovic";
+        var predavacZauzeca = trenutnaOsoba;
         var datumZauzeca    = dan + "." + (trenutniMjesec + 1) + "." + new Date().getFullYear();
         var poruka = "";
         
@@ -216,11 +211,13 @@ let Kalendar = (function() {
 
     // Funckije za validaciju podataka
     function validirajPeriodnica(periodicna) {
-        periodicna.forEach(function (x) {
-            if (x.dan < 0 || x.dan > 6 || (x.semestar !== "zimski" && x.semestar !== "ljetni") || !vrijemeRegex.test(x.pocetak) || !vrijemeRegex.test(x.kraj) || !sale.includes(x.naziv)) {
-                return false;
-            }
-        });
+        if (Array.isArray(periodicna) && periodicna.length) {
+            periodicna.forEach(function (x) {
+                if (x.dan < 0 || x.dan > 6 || (x.semestar !== "zimski" && x.semestar !== "ljetni") || !vrijemeRegex.test(x.pocetak) || !vrijemeRegex.test(x.kraj) || !sale.includes(x.naziv)) {
+                    return false;
+                }
+            });
+        }
         return true;
     }
 
@@ -231,6 +228,10 @@ let Kalendar = (function() {
             }
         });
         return true;
+    }
+
+    function spasiOsobuImpl(osoba) {
+        trenutnaOsoba = osoba;
     }
 
 
@@ -251,6 +252,7 @@ let Kalendar = (function() {
 
     document.getElementById("sljedeci").addEventListener("click", function(){
         trenutniMjesec = trenutniMjesec + 1;
+        console.log("SAD JE MJESEC PLS 1 " + trenutniMjesec);
         iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
         
         // Ako smo dosli do decembra ili se vratili na februar
@@ -277,9 +279,15 @@ let Kalendar = (function() {
         iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
     });
 
+    listaOsoba.addEventListener("change", function() {
+        trenutnaOsoba = listaOsoba.options[listaOsoba.selectedIndex].text;
+        iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
+    });
+
     return {        
         obojiZauzeca: obojiZauzecaImpl,        
         ucitajPodatke: ucitajPodatkeImpl,        
-        iscrtajKalendar: iscrtajKalendarImpl    
+        iscrtajKalendar: iscrtajKalendarImpl,
+        spasiOsobu: spasiOsobuImpl   
     }
 }());

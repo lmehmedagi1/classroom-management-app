@@ -1,0 +1,26 @@
+.sadrzaj {
+    padding: 1em;
+    margin-top: 10px;
+    text-align: center; 
+}
+
+#tabelaOsoba {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th {
+    background-color: black;
+    color: white;
+    font-weight: normal;
+}
+
+th, td {    
+    width: 10em;
+    border: 1px solid black;
+}
+
+.meni ul li:nth-child(5) a {
+    text-decoration: none;
+}
+
