@@ -40,12 +40,12 @@ app.get('/osoblje', function(req,res) {
 });
 app.get('/osobe-i-rezervacije', function(req,res) {
     var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes();
+    var time = ('0' + today.getHours()).slice(-2) + ":" + ('0' + today.getMinutes()).slice(-2);
     var trenutnoVrijeme = parseInt(time.replace(':', ''));
     var trenutniDan = today.getDay() - 1;
     if (trenutniDan === -1) 
         trenutniDan = 6;
-    var trenutniDatum =  today.getDate()+'.'+(today.getMonth()+1)+'.'+today.getFullYear();
+    var trenutniDatum =  ('0' + today.getDate()).slice(-2) + '.' + ('0' + (today.getMonth()+1)).slice(-2) + '.' + today.getFullYear();
 
     db.sequelize.query("SELECT o.ime as \"ime\", o.prezime as \"prezime\", o.uloga as \"uloga\", s.naziv as \"naziv\" " +
                        "FROM osobljes o, salas s, termins t, rezervacijas r " +

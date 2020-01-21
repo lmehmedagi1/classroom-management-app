@@ -19,20 +19,20 @@ db.sala        = sequelize.import(__dirname+'/db/sala.js');
 // Relacije
 
 // Veza 1-n (osoblje - rezervacija)
-db.rezervacija.belongsTo(db.osoblje, {as: 'rezervacije', foreignKey: 'osoba'});
-db.osoblje.hasMany(db.rezervacija, {as: 'rezervacije', foreignKey: 'osoba', onDelete: 'cascade', hooks: true});
+db.rezervacija.belongsTo(db.osoblje, {as: 'rezervacije', foreignKey: { name: 'osoba', allowNull: false }, onDelete: 'cascade'});
+db.osoblje.hasMany(db.rezervacija, {as: 'rezervacije', foreignKey: { name: 'osoba', allowNull: false }, onDelete: 'cascade'});
 
 // Veza 1-1 (rezervacija - termin)
-db.rezervacija.belongsTo(db.termin, {as: 'termini', foreignKey: 'termin', onDelete: 'cascade', hooks: true, allowNull: true});
-db.termin.hasOne(db.rezervacija, {foreignKey: 'termin', as: 'termini'});
+db.rezervacija.belongsTo(db.termin, {as: 'termini', foreignKey: { name: 'termin', unique: true, allowNull: false }, onDelete: 'cascade'});
+db.termin.hasOne(db.rezervacija, {foreignKey: { name: 'termin', unique: true, allowNull: false }, onDelete: 'cascade', as: 'termini'});
 
 // Veza n-1 (rezervacija - sala)
-db.rezervacija.belongsTo(db.sala, {as: 'rezervacijeSale', foreignKey: 'sala'});
-db.sala.hasMany(db.rezervacija, {as: 'rezervacijeSale', foreignKey: 'sala',  onDelete: 'cascade', hooks: true});
+db.rezervacija.belongsTo(db.sala, {as: 'rezervacijeSale', foreignKey: { name: 'sala', allowNull: false }, onDelete: 'cascade'});
+db.sala.hasMany(db.rezervacija, {as: 'rezervacijeSale', foreignKey: { name: 'sala', allowNull: false }, onDelete: 'cascade'});
 
 // Veza 1-1 (sala - osobe)
-db.sala.belongsTo(db.osoblje, {as: 'zaduzeneOsobe', foreignKey: 'zaduzenaOsoba', onDelete: 'cascade', hooks: true});
-db.osoblje.hasOne(db.sala, {as: 'zaduzeneOsobe', foreignKey: 'zaduzenaOsoba'});
+db.sala.belongsTo(db.osoblje, {as: 'zaduzeneOsobe', foreignKey: { name: 'zaduzenaOsoba', allowNull: true }, onDelete: 'cascade'});
+db.osoblje.hasOne(db.sala, {as: 'zaduzeneOsobe', foreignKey: { name: 'zaduzenaOsoba', allowNull: true }, onDelete: 'cascade'});
 
 
 // Pocetni podaci

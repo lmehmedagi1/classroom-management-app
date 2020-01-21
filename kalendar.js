@@ -73,11 +73,7 @@ let Kalendar = (function() {
 
         if (Array.isArray(vanrednaZauzeca) && vanrednaZauzeca.length) {
 
-            console.log(vanrednaZauzeca);
-
             vanrednaZauzeca.forEach(function (zauzece) {
-
-                console.log(zauzece);
 
                 var parts = zauzece.datum.split('.');
                 var year = parseInt(parts[2], 10);
@@ -100,6 +96,7 @@ let Kalendar = (function() {
 
         // Ukoliko su pogresni podaci, ne radi nista
         if (!validirajPeriodnica(periodicna) || !validirajVanredna(vanredna)) {
+            alert("Neispravni ulazni podaci!");
             return;
         }
 
@@ -110,8 +107,8 @@ let Kalendar = (function() {
     }    
 
 
-    function iscrtajKalendarImpl(kalendarRef, mjesec) {    
-
+    function iscrtajKalendarImpl(kalendarRef, mjesec) {   
+        
         // Ukoliko su pogresni podaci, ne radi nista
         if (kalendarRef === null || mjesec < 0 || mjesec > 11) {
             return;
@@ -170,7 +167,7 @@ let Kalendar = (function() {
         var daniUSedmici    = [" svaki ponedjeljak", " svaki utorak", " svaku srijedu", " svaki cetvrtak", " svaki petak", " svaku subotu", " svaku nedjelju"];
         var semestarZauzeca = ljetniMjeseci.includes(trenutniMjesec) ? "ljetnom" : "zimskom";
         var predavacZauzeca = trenutnaOsoba;
-        var datumZauzeca    = dan + "." + (trenutniMjesec + 1) + "." + new Date().getFullYear();
+        var datumZauzeca    = ('0' + dan).slice(-2) + "." + ('0' + (trenutniMjesec + 1)).slice(-2) + "." + new Date().getFullYear();
         var poruka = "";
         
         var prviDan = parseInt(document.getElementById("kalendar").querySelector(".dani").firstElementChild.style.gridColumnStart) - 1;
@@ -232,6 +229,7 @@ let Kalendar = (function() {
 
     function spasiOsobuImpl(osoba) {
         trenutnaOsoba = osoba;
+        iscrtajKalendarImpl(document.getElementById("kalendar"), trenutniMjesec);
     }
 
 
